@@ -175,6 +175,39 @@ public class PerUsuario {
               return null;
          }
     }
+        
+    public static boolean alterar(Usuario user)
+    {
+         String sql="update usuario set nome =?, cpf =?, senha =? where id_usuario =?";
+         try{
+             Connection con=Conexao.getConexao();
+             PreparedStatement p=Conexao.getConexao().prepareStatement(sql);
+             p.setString(1,user.getNome());
+             p.setString(2,user.getCPF());
+             p.setString(3,user.getSenha());
+             p.setInt(4,user.getID());
+             p.executeUpdate();
+             con.close();
+             return true;
+         } catch(SQLException e){
+              System.out.println("Erro no select.");
+              return false;
+         }
+    }
+    
+    public static boolean excluir(Usuario user)
+    {
+         String sql="delete usuario set nome =?, cpf =?, senha =? where id_usuario =?";
+         try{
+             Connection con=Conexao.getConexao();
+             PreparedStatement p=Conexao.getConexao().prepareStatement(sql);
+             con.close();
+             return true;
+         } catch(SQLException e){
+              System.out.println("Erro no select.");
+              return false;
+         }
+    }
        /*
        public ArrayList <Cliente> todosClientes(boolean habilitado)
     {

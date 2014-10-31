@@ -157,4 +157,5 @@ public class Main extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     public boolean cadastro_usuario = false;
     public boolean relatorio_usuario = false;
+    public boolean usuario_selecionado = false;
 }
