@@ -4,10 +4,11 @@
  */
 
 package BDInterface;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -17,23 +18,15 @@ public class Conexao {
 
     public static Connection getConexao(){
         try{
-            //Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            Class.forName("net.sourceforge.jtds.jdbc.Driver");
-            
-            String dbName = "teste";
-            String user = "sa";
-            String password = "4401718";
-                String SqlServerInstance = "instance=SQL2005";
-            String url = "jdbc:jtds:sqlserver://HP6910P";
-            url = url + "/" + dbName;
-            url = url + ";" + SqlServerInstance;
-            Connection con = DriverManager.getConnection(url, user, password);
-            //String url="jdbc:sqlserver://HP6910P\\SQLEXPRESS;database=teste;user=sa;password=4401718";
-            //Connection con=DriverManager.getConnection(url);
+            Class.forName("com.mysql.jdbc.Driver");
+            String user = "root";
+            String password = "";             
+            String url = "jdbc:mysql://127.0.0.1/carbills";          
+            Connection con = DriverManager.getConnection(url,user,password);
             return con;
-        }catch(ClassNotFoundException | SQLException e){
+           }catch(ClassNotFoundException | SQLException e){
             System.out.println(e);
-            
+           
             return null;
         }
     }
