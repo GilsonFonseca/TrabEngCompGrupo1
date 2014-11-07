@@ -1,0 +1,198 @@
+package br.ufjf.getcomp.tdd;
+
+import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.*;
+import static br.ufjf.getcomp.tdd.Valor.*;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import org.junit.Test;
+
+public class TrocadorTest {
+
+	@Test
+	public void testeEhUmValorValidoValorNegativo() {
+		// Arrange
+		final Double VALOR_NEGATIVO = -234d;
+		Trocador trocador = new Trocador();
+
+		// Act
+		Boolean ehValido = trocador.ehUmValorValido(VALOR_NEGATIVO);
+
+		// Assert
+		assertFalse(ehValido);
+	}
+
+	@Test
+	public void testeEhUmValorValidoNulo() {
+		// Arrange
+		Trocador trocador = new Trocador();
+
+		// Act
+		Boolean ehValido = trocador.ehUmValorValido(null);
+
+		// Assert
+		assertFalse(ehValido);
+	}
+
+	@Test
+	public void testeEhUmValorValidoZero() {
+		// Arrange
+		Trocador trocador = new Trocador();
+
+		// Act
+		Boolean ehValido = trocador.ehUmValorValido(0d);
+
+		// Assert
+		assertTrue(ehValido);
+	}
+
+	@Test
+	public void testeEhUmValorValidoMaiorQueZero() {
+		// Arrange
+		final Double VALOR_POSITIVO = 190d;
+		Trocador trocador = new Trocador();
+
+		// Act
+		Boolean ehValido = trocador.ehUmValorValido(VALOR_POSITIVO);
+
+		// Assert
+		assertTrue(ehValido);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testeGetTrocoComValorPagoInvalido() {
+		// Arrange
+		final Double VALOR_PAGO = 100d;
+		final Double VALOR_DEVIDO = 90d;
+
+		Trocador trocador = spy(new Trocador());
+		doReturn(Boolean.FALSE).when(trocador).ehUmValorValido(VALOR_PAGO);
+
+		// Act
+		trocador.getTroco(VALOR_PAGO, VALOR_DEVIDO);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testeGetTrocoComValorDevidoInvalido() {
+		// Arrange
+		final Double VALOR_PAGO = 100d;
+		final Double VALOR_DEVIDO = 90d;
+
+		Trocador trocador = spy(new Trocador());
+		doReturn(Boolean.FALSE).when(trocador).ehUmValorValido(VALOR_DEVIDO);
+
+		// Act
+		trocador.getTroco(VALOR_PAGO, VALOR_DEVIDO);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testeGetTrocoComValorDevidoMaiorQueValorPago() {
+		// Arrange
+		final Double VALOR_PAGO = 10d;
+		final Double VALOR_DEVIDO = 100d;
+
+		Trocador trocador = spy(new Trocador());
+		doReturn(Boolean.TRUE).when(trocador).ehUmValorValido(anyDouble());
+
+		// Act
+		trocador.getTroco(VALOR_PAGO, VALOR_DEVIDO);
+	}
+
+	@Test
+	public void testeGetTrocoComValorDevidoIgualOuMenorAoValorPago() {
+		// Arrange
+		final Double VALOR_PAGO = 10d;
+		final Double VALOR_DEVIDO = 7d;
+		final Double TROCO = VALOR_PAGO - VALOR_DEVIDO;
+		final List<?> TROCO_VALORES = Collections.EMPTY_LIST;
+		
+		Trocador trocador = spy(new Trocador());
+		doReturn(Boolean.TRUE).when(trocador).ehUmValorValido(anyDouble());
+		doReturn(TROCO_VALORES).when(trocador).convertaParaValores(TROCO);
+
+		// Act
+		List<Valor> troco = trocador.getTroco(VALOR_PAGO, VALOR_DEVIDO);
+
+		// Assert
+		assertSame(TROCO_VALORES, troco);
+		verify(trocador, times(1)).convertaParaValores(TROCO);
+	}
+	
+	@Test
+	public void testeConvertaParaValoresComValorZero()
+	{
+		// Arrange
+		final Double ZERO = 0d;
+		Trocador trocador = new Trocador();
+		
+		// Act
+		List<Valor> troco = trocador.convertaParaValores(ZERO);
+		
+		// Assert
+		assertTrue(troco.isEmpty());
+	}
+	
+	@Test
+	public void testeConvertaParaValoresComValorIdenticoAUmaNota()
+	{
+		// Arrange
+		final Valor VALOR = Valor.CINQUENTA_REAIS;
+		final Double VALOR_NOTA = VALOR.doubleValue();
+		Trocador trocador = new Trocador();
+		
+		// Act
+		List<Valor> troco = trocador.convertaParaValores(VALOR_NOTA);
+		
+		// Assert
+		assertEquals(Arrays.asList(VALOR), troco);
+	}
+	
+	@Test
+	public void testeConvertaParaValoresComTrezentosReais()
+	{
+		// Arrange
+		final Valor VALOR = Valor.CEM_REAIS;
+		final Double VALOR_MULTIPLO_NOTA = 3 * VALOR.doubleValue();
+		Trocador trocador = new Trocador();
+		
+		// Act
+		List<Valor> troco = trocador.convertaParaValores(VALOR_MULTIPLO_NOTA);
+		
+		// Assert
+		assertEquals(Arrays.asList(VALOR, VALOR, VALOR), troco);
+	}
+
+	@Test
+	public void testeConvertaParaValoresSetentaECincoReaisEQuarentaEDoisCentavos()
+	{
+		// Arrange
+		final Double VALOR = 76.42d;
+		
+		Valor[] valores = new Valor[]{
+				CINQUENTA_REAIS, 
+				VINTE_REAIS, 
+				CINCO_REAIS, 
+				UM_REAL, 
+				VINTE_E_CINCO_CENTAVOS, 
+				DEZ_CENTAVOS, 
+				CINCO_CENTAVOS, 
+				UM_CENTAVO, 
+				UM_CENTAVO
+		};
+		
+		List<Valor> expected = Arrays.asList(valores);
+		Trocador trocador = new Trocador();
+		
+		// Act
+		List<Valor> troco = trocador.convertaParaValores(VALOR);
+		
+		// Assert
+		assertEquals(expected, troco);
+	}
+	
+}
