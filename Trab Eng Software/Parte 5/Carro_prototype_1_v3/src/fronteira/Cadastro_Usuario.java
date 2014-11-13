@@ -88,6 +88,12 @@ public class Cadastro_Usuario extends javax.swing.JInternalFrame {
 
         jLabel2.setText("CPF:");
 
+        txfNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txfNomeActionPerformed(evt);
+            }
+        });
+
         jButton1.setText("Cadastrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,6 +163,10 @@ public class Cadastro_Usuario extends javax.swing.JInternalFrame {
         }
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txfNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txfNomeActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
