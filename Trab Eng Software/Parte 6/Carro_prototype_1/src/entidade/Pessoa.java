@@ -10,6 +10,7 @@ package entidade;
  *
  * @author user
  */
+//classe com os GETS e SETS realativos a uma pessoa no sistema
 public class Pessoa {
     String nome;
     String CPF;

@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 import org.junit.Ignore;
 
 /**
- *
+ *  Testes relativos a persistencia com o banco nos dados do usuário
  * @author Gilson
  */
 public class PerUsuarioTest {
@@ -42,6 +42,7 @@ public class PerUsuarioTest {
         user.setNome("TESTEJUNIT");
         user.setSenha("123456");
         boolean result = PerUsuario.inserir(user);
+        //com dados esperados corretos, testa se o banco responde como esperado
         assertEquals(expResult, result);
     }
 
@@ -54,6 +55,7 @@ public class PerUsuarioTest {
         int id = 0;
         boolean expResult = true;
         boolean result = PerUsuario.excluir(id);
+        //espera resultado afirmativo do banco numa exclusão de tupla
         assertEquals(expResult, result);
     }
 
@@ -62,6 +64,7 @@ public class PerUsuarioTest {
      */
     @Test
     public void testAlterar() {
+        //gera dados para alteração
         System.out.println("alterar");
         Usuario user = new Usuario();
         user.setID(21);
@@ -70,6 +73,7 @@ public class PerUsuarioTest {
         user.setCPF("alterado");
         boolean expResult = true;
         boolean result = PerUsuario.alterar(user);
+        //verifica se resultado é de alteração com sucesso
         assertEquals(expResult, result);
     }
 
@@ -81,6 +85,7 @@ public class PerUsuarioTest {
         System.out.println("consultar");
         boolean expResult = true;
         ArrayList<Usuario> result = PerUsuario.consultar();
+        //verifica se o banco responde bem a uma consulta
         assertEquals(expResult, result.size()>0);
     }
 
@@ -89,11 +94,13 @@ public class PerUsuarioTest {
      */
     @Test
     public void testLogin() {
+        //cria-se dados para login
         System.out.println("login");
         String usr = "Teste";
         String senha = "1234";
         boolean expResult = true;
         boolean result = PerUsuario.login(usr, senha);
+        //se verifica o comportamento afirmativo do banco com esses dados
         assertEquals(expResult, result);
     }
     

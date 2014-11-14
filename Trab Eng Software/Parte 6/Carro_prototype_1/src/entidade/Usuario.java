@@ -1,5 +1,7 @@
 package entidade;
-
+/*
+    *subclasse de pessoa com seus GETS e SETS
+*/
 public class Usuario extends Pessoa{
     String senha;
     int ID;
