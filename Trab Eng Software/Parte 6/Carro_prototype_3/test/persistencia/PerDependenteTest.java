@@ -32,7 +32,7 @@ public class PerDependenteTest {
     /**
      * Test of inserir method, of class PerDependente.
      */
-    @Test
+    @Test (timeout=2000)
     public void testInserir() {
         System.out.println("inserir - Dependente");
         Dependente user = new Dependente();

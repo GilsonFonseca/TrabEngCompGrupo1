@@ -33,7 +33,7 @@ public class PerUsuarioTest {
     /**
      * Test of inserir method, of class PerUsuario.
      */
-    @Test
+    @Test (timeout = 2000)
     public void testInserir() {
         System.out.println("inserir - Usuario");
         Usuario user = new Usuario();
@@ -49,7 +49,7 @@ public class PerUsuarioTest {
     /**
      * Test of excluir method, of class PerUsuario.
      */
-    @Test
+    @Test (timeout = 2000)
     public void testExcluir() {
         System.out.println("excluir - Usuario");
         int id = 0;
@@ -62,7 +62,7 @@ public class PerUsuarioTest {
     /**
      * Test of alterar method, of class PerUsuario.
      */
-    @Test
+    @Test (timeout = 2000)
     public void testAlterar() {
         //gera dados para alteração
         System.out.println("alterar - Usuario");
@@ -80,7 +80,7 @@ public class PerUsuarioTest {
     /**
      * Test of consultar method, of class PerUsuario.
      */
-    @Test
+    @Test (timeout = 2000)
     public void testConsultar() {
         System.out.println("consultar - Usuario");
         boolean expResult = true;
@@ -92,7 +92,7 @@ public class PerUsuarioTest {
     /**
      * Test of login method, of class PerUsuario.
      */
-    @Test
+    @Test (timeout = 2000)
     public void testLogin() {
         //cria-se dados para login
         System.out.println("login - Usuario");
