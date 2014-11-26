@@ -1,6 +1,7 @@
 package persistencia;
 
 import BDInterface.Conexao;
+import entidade.Veiculo;
 import entidade.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -151,4 +152,9 @@ public class PerUsuario {
               return false;
          }
     }
+    
+//    public static boolean addCarro(Usuario user,Carro carro)
+//    {
+//       
+//    }
 }

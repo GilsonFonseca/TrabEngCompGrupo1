@@ -12,6 +12,9 @@ package entidade;
 public class Marca {
     String nome;    
 
+    public Marca(String a){
+        nome =a;
+    }
     public String getNome() {
         return nome;
     }

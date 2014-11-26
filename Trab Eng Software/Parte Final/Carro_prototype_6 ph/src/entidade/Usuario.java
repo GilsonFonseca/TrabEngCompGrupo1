@@ -1,13 +1,15 @@
 package entidade;
+
+import java.util.ArrayList;
+
 /*
     *subclasse de pessoa com seus GETS e SETS
 */
 public class Usuario extends Pessoa{
     String senha;
     int ID;
-    int i =0, j= 0;
-    Dependente [] dependentes;
-    Carro [] carros;
+    ArrayList<Dependente> dependentes;
+    ArrayList<Veiculo> veiculos;
 
     public int getID() {
         return ID;
@@ -24,27 +26,21 @@ public class Usuario extends Pessoa{
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
-    public Dependente getDependente(int i)
-    {
-        return dependentes[i];
+
+    public ArrayList<Dependente> getDependentes() {
+        return dependentes;
     }
-    
-    public void setDependente(Dependente dependente)
-    {
-        this.dependentes[i] = dependente;
-        i++;
+
+    public void setDependentes(ArrayList<Dependente> dependentes) {
+        this.dependentes = dependentes;
     }
-    
-    public Carro getCarro(int i)
-    {
-        return carros[i];
+
+    public ArrayList<Veiculo> getVeiculos() {
+        return veiculos;
     }
-    
-    public void setCarro(Carro carro)
-    {
-        this.carros[j] = carro;
-        j++;
+
+    public void setVeiculos(ArrayList<Veiculo> veiculos) {
+        this.veiculos = veiculos;
     }
     
 }
