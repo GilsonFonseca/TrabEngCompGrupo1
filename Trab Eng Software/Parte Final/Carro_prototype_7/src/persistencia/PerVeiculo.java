@@ -23,7 +23,7 @@ public class PerVeiculo {
     public static boolean inserir(Veiculo user)
         {     
         //comando sql
-        String sql="insert into veiculo(marca,cor, ano, modelo, placa, condicao, valorComprado, valorVendido,id_usuario) values(?,?,?,?,?,?,?,?,?,?)";
+        String sql="insert into veiculo(marca,cor, ano, modelo, placa, condicao, valorComprado, valorVendido,id_usuario,chassi) values(?,?,?,?,?,?,?,?,?,?)";
         //tenta realizar a operação
         try{
             //realiza a conexao
@@ -38,7 +38,7 @@ public class PerVeiculo {
             p.setFloat(7, user.getValorComprado());
             p.setFloat(8, user.getValorVendido());
             p.setInt(9, user.getUsuario().getID());
-                    
+            p.setString(10, user.getChassi());
             //executa a operação
             p.executeUpdate();
             //fecha a conexão   
@@ -55,7 +55,7 @@ public class PerVeiculo {
     public static ArrayList <Veiculo> consultar(int usuario_id)
     {
         //comando sql 
-        String sql="select marca,cor, ano, modelo, placa, condicao, valorComprado, valorVendido from veiculo where veiculo.id_usuario = "+usuario_id;
+        String sql="select marca,cor,chassi ,ano, modelo, placa, condicao, valorComprado, valorVendido from veiculo where veiculo.id_usuario = "+usuario_id;
         //tenta realizar a operação
         try{
             //realiza a conexaocom o banco 
@@ -71,12 +71,13 @@ public class PerVeiculo {
                 usr=new Veiculo();
                 usr.setMarca(new Marca(resultSet.getString(1)));
                 usr.setCor(resultSet.getString(2));
-                usr.setAno(resultSet.getString(3));
-                usr.setModelo(resultSet.getString(4));
-                usr.setPlaca(resultSet.getString(5));
-                usr.setCondicao(resultSet.getInt(6));
-                usr.setValorComprado(resultSet.getFloat(7));
-                usr.setValorVendido(resultSet.getFloat(8));
+                usr.setChassi(resultSet.getString(3));
+                usr.setAno(resultSet.getString(4));
+                usr.setModelo(resultSet.getString(5));
+                usr.setPlaca(resultSet.getString(6));
+                usr.setCondicao(resultSet.getInt(7));
+                usr.setValorComprado(resultSet.getFloat(8));
+                usr.setValorVendido(resultSet.getFloat(9));
                 Usuario b = new Usuario();
                 b.setID(usuario_id);
                 usr.setUsuario(b);

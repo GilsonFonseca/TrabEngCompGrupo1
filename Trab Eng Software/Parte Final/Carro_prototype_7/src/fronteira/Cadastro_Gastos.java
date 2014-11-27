@@ -5,10 +5,15 @@
  */
 package fronteira;
 
+import entidade.Gasto;
 import entidade.Usuario;
 import entidade.Veiculo;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.event.InternalFrameEvent;
+import javax.swing.event.InternalFrameListener;
 import javax.swing.table.DefaultTableModel;
+import persistencia.PerGastos;
 import persistencia.PerUsuario;
 import persistencia.PerVeiculo;
 
@@ -16,40 +21,86 @@ import persistencia.PerVeiculo;
  *
  * @author Gilson
  */
-public class Cadastro_Gastos extends javax.swing.JFrame {
+public class Cadastro_Gastos extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Cadastro_Gastos
      */
-    public Cadastro_Gastos() {
+    public Cadastro_Gastos(final Main father) {
+        setClosable(true);
+        //adiciona estroturas ao frame de interface com o usuário e suas operações
+        this.addInternalFrameListener(new InternalFrameListener() {
+            /*
+             * Todos os metodos vazios e com override, simbolizam que estão usando a 
+             * estrutura padrão
+             */
+            @Override
+            public void internalFrameOpened(InternalFrameEvent e) {
+
+            }
+
+            @Override
+            public void internalFrameClosing(InternalFrameEvent e) {
+                father.cadastro_gasto = false;
+                dispose();
+            }
+
+            @Override
+            public void internalFrameClosed(InternalFrameEvent e) {
+
+            }
+
+            @Override
+            public void internalFrameIconified(InternalFrameEvent e) {
+
+            }
+
+            @Override
+            public void internalFrameDeiconified(InternalFrameEvent e) {
+
+            }
+
+            @Override
+            public void internalFrameActivated(InternalFrameEvent e) {
+
+            }
+
+            @Override
+            public void internalFrameDeactivated(InternalFrameEvent e) {
+
+            }
+        });
+
         initComponents();
         preencherTabelaUsuario();
     }
-    
-    private void preencherTabelaUsuario(){
+
+    private void preencherTabelaUsuario() {
         //primeiramente preenche a tabela na coluna carros com default (esses dados ainda não são de interesse)
-        ((DefaultTableModel)table.getModel()).setRowCount(0);
+        ((DefaultTableModel) table.getModel()).setRowCount(0);
         //com os dados dos usuários prenche o resto da tabela
-        ArrayList <Usuario> users=PerUsuario.consultar();
-        for(Usuario usuario : users){
-            Object[] linha = {usuario.getID(),usuario.getNome(),usuario.getCPF()};
-            ((DefaultTableModel)table.getModel()).insertRow(table.getModel().getRowCount(),linha);           
+        ArrayList<Usuario> users = PerUsuario.consultar();
+        for (Usuario usuario : users) {
+            Object[] linha = {usuario.getID(), usuario.getNome(), usuario.getCPF()};
+            ((DefaultTableModel) table.getModel()).insertRow(table.getModel().getRowCount(), linha);
         }
         //fornece o cursor só se necessário
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
     }
-    private void preencherTabelaVeiculos(int usr_id){
+
+    private void preencherTabelaVeiculos(int usr_id) {
         //primeiramente preenche a tabela na coluna carros com default (esses dados ainda não são de interesse)
-        ((DefaultTableModel)table2.getModel()).setRowCount(0);
+        ((DefaultTableModel) table2.getModel()).setRowCount(0);
         //com os dados dos usuários prenche o resto da tabela
-        ArrayList <Veiculo> users=PerVeiculo.consultar(usr_id);
-        for(Veiculo veiculo : users){
-            Object[] linha = {veiculo.getId(),veiculo.getModelo(),veiculo.getMarca(),veiculo.getMarca(),veiculo.getCor()};
-            ((DefaultTableModel)table2.getModel()).insertRow(table.getModel().getRowCount(),linha);           
+        ArrayList<Veiculo> users = PerVeiculo.consultar(usr_id);
+        for (Veiculo veiculo : users) {
+            Object[] linha = {veiculo.getId(), veiculo.getModelo(), veiculo.getMarca(), veiculo.getMarca(), veiculo.getCor()};
+            ((DefaultTableModel) table2.getModel()).insertRow(table2.getModel().getRowCount(), linha);
         }
         //fornece o cursor só se necessário
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,6 +118,20 @@ public class Cadastro_Gastos extends javax.swing.JFrame {
         table2 = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtDescricao = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
+        comboTipo = new javax.swing.JComboBox();
+        txtCusto = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        spinnerParcelas = new javax.swing.JSpinner();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        comboIntervalo = new javax.swing.JComboBox();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txtData = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -134,25 +199,83 @@ public class Cadastro_Gastos extends javax.swing.JFrame {
 
         jLabel11.setText("Veículo");
 
+        txtDescricao.setColumns(20);
+        txtDescricao.setLineWrap(true);
+        txtDescricao.setRows(5);
+        txtDescricao.setWrapStyleWord(true);
+        jScrollPane3.setViewportView(txtDescricao);
+
+        jButton1.setText("Cadastrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        comboTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Combustivel", "Manutenção", "Multa", "Seguro" }));
+
+        jLabel1.setText("Valor:");
+
+        spinnerParcelas.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), null, null, Integer.valueOf(1)));
+
+        jLabel2.setText("Parcelas");
+
+        jLabel3.setText("/");
+
+        comboIntervalo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Dia", "Semana", "Mês", "Semestre", "Bimestre", "Ano" }));
+
+        jLabel4.setText("Descrição:");
+
+        jLabel5.setText("Tipo:");
+
+        jLabel6.setText("Data:");
+
+        txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton3)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel11)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
                         .addComponent(jLabel10)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtData)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton3))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboTipo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(spinnerParcelas, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(comboIntervalo, 0, 134, Short.MAX_VALUE))
+                            .addComponent(txtCusto))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -161,16 +284,43 @@ public class Cadastro_Gastos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton2)
+                            .addComponent(jLabel11)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2)
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
-                .addContainerGap(243, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCusto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboIntervalo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(spinnerParcelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jButton1)
+                            .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -181,52 +331,50 @@ public class Cadastro_Gastos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        preencherTabelaVeiculos((int)table.getValueAt(table.getSelectedRow(), 0));
+        preencherTabelaVeiculos(((Integer) table.getValueAt(table.getSelectedRow(), 0)));
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cadastro_Gastos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cadastro_Gastos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cadastro_Gastos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cadastro_Gastos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Gasto a = new Gasto();
+        a.setId_usuario(((Integer) table.getValueAt(table.getSelectedRow(), 0)));
+        a.setId_veiculo(((Integer) table.getValueAt(table2.getSelectedRow(), 0)));
+        a.setCusto(Integer.parseInt(txtCusto.getText()));
+        a.setDescricao(txtDescricao.getText());
+        a.setDt_pagamento(txtData.getText());
+        a.setParcelas((Integer) spinnerParcelas.getValue());
+        a.setTipo((String) comboTipo.getSelectedItem());
+        a.setIntervalo_parcela((String) comboIntervalo.getSelectedItem());
+        setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
+        if (PerGastos.inserir(a)) {
+            JOptionPane.showMessageDialog(rootPane, " Gasto cadastrado com sucesso!", "CarBill - Protype 1", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(rootPane, " Erro ao cadastrar!", "CarBill - Protype 1", JOptionPane.ERROR_MESSAGE);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Cadastro_Gastos().setVisible(true);
-            }
-        });
-    }
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox comboIntervalo;
+    private javax.swing.JComboBox comboTipo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSpinner spinnerParcelas;
     private javax.swing.JTable table;
     private javax.swing.JTable table2;
+    private javax.swing.JTextField txtCusto;
+    private javax.swing.JFormattedTextField txtData;
+    private javax.swing.JTextArea txtDescricao;
     // End of variables declaration//GEN-END:variables
 }

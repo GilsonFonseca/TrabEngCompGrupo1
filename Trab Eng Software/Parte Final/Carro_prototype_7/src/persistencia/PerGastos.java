@@ -5,30 +5,38 @@
  */
 package persistencia;
 
+import BDInterface.Conexao;
+import entidade.Gasto;
+import entidade.Usuario;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
 /**
  *
  * @author Gilson
  */
 public class PerGastos {
-     public static boolean inserir(Gastos gastos)
+     public static boolean inserir(Gasto gastos)
         {     
         //comando sql
-        String sql="insert into veiculo(marca,cor, ano, modelo, placa, condicao, valorComprado, valorVendido,id_usuario) values(?,?,?,?,?,?,?,?,?,?)";
+        String sql="insert into Gasto(custo,dt_pagamento,id_usuario,id_veiculo,descricao,tipo,parcelas,intervalo_parcela) values(?,?,?,?,?,?,?,?)";
         //tenta realizar a operação
         try{
             //realiza a conexao
             Connection con=Conexao.getConexao();
             PreparedStatement p=con.prepareStatement(sql);
-            p.setString(1, user.getMarca().getNome());
-            p.setString(2,user.getCor());
-            p.setString(3, user.getAno());
-            p.setString(4,user.getModelo());
-            p.setString(5, user.getPlaca());
-            p.setInt(6, user.getCondicao());
-            p.setFloat(7, user.getValorComprado());
-            p.setFloat(8, user.getValorVendido());
-            p.setInt(9, user.getUsuario().getID());
-                    
+            p.setFloat(1,gastos.getCusto());
+            p.setString(2,  gastos.getDt_pagamento());                    
+            p.setInt(3, gastos.getId_usuario());
+            p.setInt(4, gastos.getId_veiculo());
+            p.setString(5, gastos.getDescricao());
+            p.setString(6, gastos.getTipo());
+            p.setInt(7,gastos.getParcelas());
+            p.setString(8, gastos.getIntervalo_parcela());
             //executa a operação
             p.executeUpdate();
             //fecha a conexão   
@@ -42,10 +50,10 @@ public class PerGastos {
     }
     
     
-    public static ArrayList <Veiculo> consultar(int usuario_id)
+    public static ArrayList <Gasto> consultar(Gasto gasto, int usuario_id)
     {
         //comando sql 
-        String sql="select marca,cor, ano, modelo, placa, condicao, valorComprado, valorVendido from veiculo where veiculo.id_usuario = "+usuario_id;
+        String sql="select gasto,dt_pagamento from Gasto where Gasto.dt_pagamento = "+gasto.getDt_pagamento();
         //tenta realizar a operação
         try{
             //realiza a conexaocom o banco 
@@ -54,27 +62,21 @@ public class PerGastos {
              //executa a query
              ResultSet resultSet=p.executeQuery();
              //com os dados vai preencher os dados da consulta num array
-             ArrayList <Veiculo> users=new ArrayList<>();
-             Veiculo usr;
+             ArrayList <Gasto> gastos=new ArrayList<>();
+             Gasto gast;
              while(resultSet.next())
              {
-                usr=new Veiculo();
-                usr.setMarca(new Marca(resultSet.getString(1)));
-                usr.setCor(resultSet.getString(2));
-                usr.setAno(resultSet.getString(3));
-                usr.setModelo(resultSet.getString(4));
-                usr.setPlaca(resultSet.getString(5));
-                usr.setCondicao(resultSet.getInt(6));
-                usr.setValorComprado(resultSet.getFloat(7));
-                usr.setValorVendido(resultSet.getFloat(8));
+                gast=new Gasto();
+                gast.setCusto(resultSet.getFloat(1));
+                gast.setDt_pagamento(resultSet.getString(2));
                 Usuario b = new Usuario();
                 b.setID(usuario_id);
-                usr.setUsuario(b);
-                users.add(usr);
+                gast.setUsuario(b);
+                gastos.add(gast);
              }
              //fecha a conexão
              con.close();
-             return users;
+             return gastos;
          } catch(SQLException e){
              //alerta em caso de erro de operação
               System.out.println("Busca sem resultado.");
@@ -82,25 +84,17 @@ public class PerGastos {
          }
     }
     
-    public static boolean alterar(Veiculo user)
+    public static boolean alterar(Gasto user)
         {     
         //comando sql
-        String sql="update veiculo set marca = ?,cor = ?, ano = ?, modelo = ?, placa = ?, condicao = ?, valorComprado = ?, valorVendido = ?,id_usuario = ? where id_usuario="+user.getId();
+        String sql="update conta set gasto = ?,dt_pagamento = ?where id_usuario="+user.getUsuarioId();
         //tenta realizar a operação
         try{
             //realiza a conexao
             Connection con=Conexao.getConexao();
             PreparedStatement p=con.prepareStatement(sql);
-            p.setString(1, user.getMarca().getNome());
-            p.setString(2,user.getCor());
-            p.setString(3, user.getAno());
-            p.setString(4,user.getModelo());
-            p.setString(5, user.getPlaca());
-            p.setInt(6, user.getCondicao());
-            p.setFloat(7, user.getValorComprado());
-            p.setFloat(8, user.getValorVendido());
-            p.setInt(9, user.getUsuario().getID());
-                    
+            p.setFloat(1, user.getCusto());
+            p.setString(2, user.getDt_pagamento());                    
             //executa a operação
             p.executeUpdate();
             //fecha a conexão   

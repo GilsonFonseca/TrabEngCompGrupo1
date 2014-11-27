@@ -11,6 +11,7 @@ import persistencia.PerUsuario;
 */
 public class Cadastro_Usuario extends javax.swing.JInternalFrame {
     //construtor da classe
+    
     public Cadastro_Usuario(final Main father) {
         this.father = father;
         setClosable(true);

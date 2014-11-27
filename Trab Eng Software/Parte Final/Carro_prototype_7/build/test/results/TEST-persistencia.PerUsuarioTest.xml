@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="Gilsin" name="persistencia.PerUsuarioTest" skipped="0" tests="5" time="0.641" timestamp="2014-11-14T21:34:58">
+<testsuite errors="3" failures="0" hostname="Gilsin" name="persistencia.PerUsuarioTest" skipped="0" tests="5" time="7.359" timestamp="2014-11-27T17:49:07">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="BR" />
@@ -12,7 +12,7 @@
     <property name="ant.core.lib" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\ant\lib\ant.jar" />
     <property name="javadoc.windowtitle" value="" />
     <property name="libs.jsp-compilation.javadoc" value="" />
-    <property name="user.dir" value="C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte 6\Carro_prototype_3" />
+    <property name="user.dir" value="C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte Final\Carro_prototype_7" />
     <property name="libs.javaee-api-7.0.src" value="" />
     <property name="java.vm.version" value="23.25-b01" />
     <property name="libs.DataBindingME.classpath" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\netbeans_databindingme.jar" />
@@ -59,7 +59,7 @@
     <property name="libs.j2me_common_ant.maven-pom" value="" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner persistencia.PerUsuarioTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte 6\Carro_prototype_3\build\test\results\TEST-persistencia.PerUsuarioTest.xml crashfile=C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte 6\Carro_prototype_3\build\junitvmwatcher8178582036113285589.properties propsfile=C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte 6\Carro_prototype_3\build\junit5633952323160777867.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner persistencia.PerUsuarioTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte Final\Carro_prototype_7\build\test\results\TEST-persistencia.PerUsuarioTest.xml crashfile=C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte Final\Carro_prototype_7\build\junitvmwatcher4817826379669441401.properties propsfile=C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte Final\Carro_prototype_7\build\junit3140248200604237490.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -124,7 +124,7 @@
     <property name="libs.spring-framework400.src" value="" />
     <property name="libs.PostgreSQLDriver.src" value="" />
     <property name="sun.arch.data.model" value="64" />
-    <property name="basedir" value="C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte 6\Carro_prototype_3" />
+    <property name="basedir" value="C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte Final\Carro_prototype_7" />
     <property name="libs.jpa20-persistence.maven-pom" value="" />
     <property name="jar.compress" value="false" />
     <property name="libs.javaee-web-api-7.0.classpath" value="C:\Program Files\NetBeans 8.0\enterprise\modules\ext\javaee-web-api-7.0.jar" />
@@ -169,7 +169,7 @@
     <property name="libs.spring-webmvc4.0.maven-pom" value="" />
     <property name="libs.spring-framework300.src" value="" />
     <property name="libs.jstl.src" value="" />
-    <property name="empty.dir" value="C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte 6\Carro_prototype_3\build\empty" />
+    <property name="empty.dir" value="C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte Final\Carro_prototype_7\build\empty" />
     <property name="version-output" value="java version &quot;1.7" />
     <property name="test.binarytestincludes" value="" />
     <property name="libs.hibernate4-persistencemodelgen.src" value="" />
@@ -211,8 +211,7 @@
     <property name="libs.jsp-compiler.classpath" value="C:\Program Files\NetBeans 8.0\enterprise\ant\extra\jspcompile.jar" />
     <property name="javac.processorpath" value="sqljdbc4.jar:jtds-1.3.1.jar:C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\mysql-connector-java-5.1.23-bin.jar" />
     <property name="javac.compilerargs" value="" />
-    <property name="svnkit.http.methods" value="Basic" />
-    <property name="ant.file" value="C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte 6\Carro_prototype_3\build.xml" />
+    <property name="ant.file" value="C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte Final\Carro_prototype_7\build.xml" />
     <property name="libs.beans-binding.maven-pom" value="" />
     <property name="libs.hibernate4-support.javadoc" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\docs\javax.persistence-2.1.0-doc.zip" />
     <property name="libs.jsf12.classpath" value="C:\Program Files\NetBeans 8.0\enterprise\modules\ext\jsf-1_2\commons-beanutils.jar;C:\Program Files\NetBeans 8.0\enterprise\modules\ext\jsf-1_2\commons-collections.jar;C:\Program Files\NetBeans 8.0\enterprise\modules\ext\jsf-1_2\commons-digester.jar;C:\Program Files\NetBeans 8.0\enterprise\modules\ext\jsf-1_2\commons-logging.jar;C:\Program Files\NetBeans 8.0\enterprise\modules\ext\jsf-1_2\jsf-api.jar;C:\Program Files\NetBeans 8.0\enterprise\modules\ext\jsf-1_2\jsf-impl.jar" />
@@ -222,10 +221,11 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation" />
     <property name="libs.DataBindingME-PIM.javadoc" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\docs\netbeans_databindingme_pim-api.zip" />
     <property name="libs.swing-layout.src" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\docs\swing-layout-1.0.4-src.zip" />
-    <property name="ant.file.Carro_prototype_3" value="C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte 6\Carro_prototype_3\build.xml" />
+    <property name="ant.file.Carro_prototype_3" value="C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte Final\Carro_prototype_7\build.xml" />
     <property name="org.openide.major.version" value="IDE/1" />
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
     <property name="netbeans.user" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0" />
+    <property name="tests.failed" value="true" />
     <property name="javadoc.additionalparam" value="" />
     <property name="java.io.tmpdir" value="C:\Users\Gilson\AppData\Local\Temp\" />
     <property name="java.vendor.url" value="http://java.oracle.com/" />
@@ -245,6 +245,7 @@
     <property name="dist.jar" value="dist/Carro_prototype_1.jar" />
     <property name="file.reference.jtds-1.3.1.jar" value="jtds-1.3.1.jar" />
     <property name="libs.spring-framework400.maven-pom" value="" />
+    <property name="netbeans.automatic.build" value="true" />
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
     <property name="ant.project.name" value="Carro_prototype_3" />
     <property name="netbeans.hash.code" value="unique=NB_CND_EXTIDE_GFMOD_GROOVY_JAVA_JC_MOB_PHP_WEBCOMMON_WEBEE0bb89929b-5f97-48ca-9e78-8e9bf1256c55_0d9b3fad-1ce9-4dc0-8b05-4f52d70b0341" />
@@ -285,17 +286,17 @@
     <property name="libs.metro.javadoc" value="C:\Program Files\NetBeans 8.0\enterprise\docs\metro-1.4-doc.zip" />
     <property name="libs.struts.maven-pom" value="" />
     <property name="netbeans.home+have.tests" value="true" />
-    <property name="ant.file.Carro_prototype_3-impl" value="C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte 6\Carro_prototype_3\nbproject\build-impl.xml" />
+    <property name="ant.file.Carro_prototype_3-impl" value="C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte Final\Carro_prototype_7\nbproject\build-impl.xml" />
     <property name="annotation.processing.processor.options" value="" />
     <property name="libs.testng.maven-pom" value="" />
     <property name="libs.jaxb.src" value="" />
-    <property name="work.dir" value="C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte 6\Carro_prototype_3" />
+    <property name="work.dir" value="C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte Final\Carro_prototype_7" />
     <property name="libs.jaxb.classpath" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\jaxb\jaxb-impl.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\jaxb\jaxb-xjc.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\jaxb\jaxb1-impl.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\jaxb\activation.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\jaxb\api\jaxb-api.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\jaxb\api\jsr173_1.0_api.jar" />
     <property name="do.depend" value="false" />
     <property name="dist.javadoc.dir" value="dist/javadoc" />
     <property name="libs.j2me_common_ant.classpath" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\org-netbeans-modules-j2me-common-ant.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\org-netbeans-modules-classfile.jar" />
-    <property name="libs.spring-webmvc3.0.classpath" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\spring-3.0\spring-webmvc-3.2.7.RELEASE.jar" />
     <property name="libs.swing-layout.classpath" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\swing-layout-1.0.4.jar" />
+    <property name="libs.spring-webmvc3.0.classpath" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\spring-3.0\spring-webmvc-3.2.7.RELEASE.jar" />
     <property name="libs.javaee-web-api-7.0.maven-pom" value="" />
     <property name="libs.restlib.src" value="" />
     <property name="javac.source" value="1.7" />
@@ -308,7 +309,7 @@
     <property name="junit.forkmode" value="perTest" />
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.7.0_25\jre\lib\resources.jar;C:\Program Files\Java\jdk1.7.0_25\jre\lib\rt.jar;C:\Program Files\Java\jdk1.7.0_25\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.7.0_25\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.7.0_25\jre\lib\jce.jar;C:\Program Files\Java\jdk1.7.0_25\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.7.0_25\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.7.0_25\jre\classes" />
     <property name="javac.target" value="1.7" />
-    <property name="built-jar.properties" value="C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte 6\Carro_prototype_3\build\built-jar.properties" />
+    <property name="built-jar.properties" value="C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte Final\Carro_prototype_7\build\built-jar.properties" />
     <property name="build.test.classes.dir" value="build/test/classes" />
     <property name="src.dir" value="src" />
     <property name="sun.awt.keepWorkingSetOnMinimize" value="true" />
@@ -316,8 +317,8 @@
     <property name="annotation.processing.enabled" value="true" />
     <property name="libs.jsf20.src" value="" />
     <property name="libs.jpa20-persistence.src" value="" />
-    <property name="libs.DataBindingME-SVG.maven-pom" value="" />
     <property name="libs.jsf12.src" value="" />
+    <property name="libs.DataBindingME-SVG.maven-pom" value="" />
     <property name="libs.nokiadeployment.src" value="" />
     <property name="ant.file.type.Carro_prototype_3" value="file" />
     <property name="libs.struts.javadoc" value="C:\Program Files\NetBeans 8.0\enterprise\docs\struts-1.3.10-javadoc.zip" />
@@ -332,11 +333,11 @@
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
     <property name="default.javac.source" value="1.7" />
     <property name="debug-transport-by-os" value="dt_shmem" />
-    <property name="libs.MySQLDriver.src" value="" />
     <property name="sun.jnu.encoding" value="Cp1252" />
+    <property name="libs.MySQLDriver.src" value="" />
     <property name="libs.nokiadeployment.javadoc" value="" />
-    <property name="build.test.results.dir" value="build/test/results" />
     <property name="java.runtime.version" value="1.7.0_25-b17" />
+    <property name="build.test.results.dir" value="build/test/results" />
     <property name="default.javac.target" value="1.7" />
     <property name="libs.junit_4.classpath" value="C:\Program Files\NetBeans 8.0\platform\modules\ext\junit-4.10.jar" />
     <property name="user.timezone" value="" />
@@ -356,7 +357,7 @@
     <property name="libs.jpa2-persistence.javadoc" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\docs\javax.persistence-2.1.0-doc.zip" />
     <property name="libs.DataBindingME.javadoc" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\docs\netbeans_databindingme-api.zip" />
     <property name="apple.laf.useScreenMenuBar" value="true" />
-    <property name="java.class.path" value="C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte 6\Carro_prototype_3\sqljdbc4.jar;C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte 6\Carro_prototype_3\jtds-1.3.1.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\mysql-connector-java-5.1.23-bin.jar;C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte 6\Carro_prototype_3\build\classes;C:\Program Files\NetBeans 8.0\platform\modules\ext\junit-4.10.jar;C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte 6\Carro_prototype_3\build\test\classes;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\ant\lib\ant-launcher.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\ant\lib\ant.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\ant\lib\ant-junit.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\ant\lib\ant-junit4.jar" />
+    <property name="java.class.path" value="C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte Final\Carro_prototype_7\sqljdbc4.jar;C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte Final\Carro_prototype_7\jtds-1.3.1.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\mysql-connector-java-5.1.23-bin.jar;C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte Final\Carro_prototype_7\build\classes;C:\Program Files\NetBeans 8.0\platform\modules\ext\junit-4.10.jar;C:\Users\Gilson\Documents\GitHub\TrabEngCompGrupo1\Trab Eng Software\Parte Final\Carro_prototype_7\build\test\classes;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\ant\lib\ant-launcher.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\ant\lib\ant.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\ant\lib\ant-junit.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\ant\lib\ant-junit4.jar" />
     <property name="do.mkdist" value="true" />
     <property name="libs.absolutelayout.src" value="" />
     <property name="libs.jpa20-persistence.classpath" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar" />
@@ -372,8 +373,8 @@
     <property name="libs.restlib.javadoc" value="" />
     <property name="nb.internal.action.name" value="test" />
     <property name="libs.JAXB-ENDORSED.classpath" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\jaxb\api\jaxb-api.jar" />
-    <property name="libs.eclipselink.classpath" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\eclipselink\eclipselink.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar" />
     <property name="libs.javaee-api-7.0.javadoc" value="C:\Program Files\NetBeans 8.0\enterprise\docs\javaee-doc-api.jar" />
+    <property name="libs.eclipselink.classpath" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\eclipselink\eclipselink.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar" />
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
     <property name="libs.beans-binding.javadoc" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\docs\beansbinding-1.2.1-doc.zip" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
@@ -384,8 +385,8 @@
     <property name="libs.hibernate4-persistence.classpath" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\hibernate4\antlr-2.7.7.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\hibernate4\c3p0-0.9.2.1.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\hibernate4\hibernate-c3p0-4.3.1.Final.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\hibernate4\mchange-commons-java-0.2.3.4.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\hibernate4\dom4j-1.6.1.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\hibernate4\ehcache-core-2.4.3.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\hibernate4\hibernate-ehcache-4.3.1.Final.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\hibernate4\hibernate-core-4.3.1.Final.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\hibernate4\jboss-logging-3.1.3.GA.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\hibernate4\hibernate-commons-annotations-4.0.4.Final.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\hibernate4\hibernate-entitymanager-4.3.1.Final.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\hibernate4\javassist-3.18.1-GA.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\hibernate4\jboss-transaction-api_1.2_spec-1.0.0.Final.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\hibernate4\slf4j-api-1.6.1.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\hibernate4\slf4j-simple-1.6.1.jar;C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\hibernate4\hibernate-jpa-2.1-api-1.0.0.Final.jar" />
     <property name="libs.JAXB-ENDORSED.src" value="" />
     <property name="dist.archive.excludes" value="" />
-    <property name="libs.testng.javadoc" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\docs\testng-6.8.1-javadoc.zip" />
     <property name="libs.DataBindingME-PIM.src" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\sources\netbeans_databindingme_pim-src.zip" />
+    <property name="libs.testng.javadoc" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\docs\testng-6.8.1-javadoc.zip" />
     <property name="user.script" value="" />
     <property name="libs.PostgreSQLDriver.classpath" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\postgresql-9.2-1002.jdbc4.jar" />
     <property name="libs.jsf12.maven-pom" value="" />
@@ -399,23 +400,131 @@
     <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
     <property name="file.encoding" value="Cp1252" />
     <property name="build.classes.excludes" value="**/*.java,**/*.form" />
-    <property name="javadoc.nonavbar" value="false" />
     <property name="jdkBug6558476" value="false" />
+    <property name="javadoc.nonavbar" value="false" />
     <property name="libs.spring-webmvc4.0.classpath" value="C:\Users\Gilson\AppData\Roaming\NetBeans\8.0\modules\ext\spring-4\spring-webmvc-4.0.1.RELEASE.jar" />
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="C:\Program Files\NetBeans 8.0\enterprise\docs\javaee-doc-api.jar" />
   </properties>
-  <testcase classname="persistencia.PerUsuarioTest" name="testExcluir" time="0.421" />
-  <testcase classname="persistencia.PerUsuarioTest" name="testLogin" time="0.047" />
-  <testcase classname="persistencia.PerUsuarioTest" name="testInserir" time="0.016" />
-  <testcase classname="persistencia.PerUsuarioTest" name="testAlterar" time="0.031" />
-  <testcase classname="persistencia.PerUsuarioTest" name="testConsultar" time="0.031" />
-  <system-out><![CDATA[excluir - Usuario
+  <testcase classname="persistencia.PerUsuarioTest" name="testConsultar" time="2.0">
+    <error message="test timed out after 2000 milliseconds" type="java.lang.Exception">java.lang.Exception: test timed out after 2000 milliseconds
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at java.net.Socket.connect(Socket.java:528)
+	at java.net.Socket.&lt;init&gt;(Socket.java:425)
+	at java.net.Socket.&lt;init&gt;(Socket.java:241)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:259)
+	at com.mysql.jdbc.MysqlIO.&lt;init&gt;(MysqlIO.java:305)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2461)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2498)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2283)
+	at com.mysql.jdbc.ConnectionImpl.&lt;init&gt;(ConnectionImpl.java:822)
+	at com.mysql.jdbc.JDBC4Connection.&lt;init&gt;(JDBC4Connection.java:47)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:404)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:317)
+	at java.sql.DriverManager.getConnection(DriverManager.java:571)
+	at java.sql.DriverManager.getConnection(DriverManager.java:215)
+	at BDInterface.Conexao.getConexao(Conexao.java:28)
+	at persistencia.PerUsuario.consultar(PerUsuario.java:102)
+	at persistencia.PerUsuarioTest.testConsultar(PerUsuarioTest.java:87)
+</error>
+  </testcase>
+  <testcase classname="persistencia.PerUsuarioTest" name="testLogin" time="2.0">
+    <error message="test timed out after 2000 milliseconds" type="java.lang.Exception">java.lang.Exception: test timed out after 2000 milliseconds
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at java.net.Socket.connect(Socket.java:528)
+	at java.net.Socket.&lt;init&gt;(Socket.java:425)
+	at java.net.Socket.&lt;init&gt;(Socket.java:241)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:259)
+	at com.mysql.jdbc.MysqlIO.&lt;init&gt;(MysqlIO.java:305)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2461)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2498)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2283)
+	at com.mysql.jdbc.ConnectionImpl.&lt;init&gt;(ConnectionImpl.java:822)
+	at com.mysql.jdbc.JDBC4Connection.&lt;init&gt;(JDBC4Connection.java:47)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:404)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:317)
+	at java.sql.DriverManager.getConnection(DriverManager.java:571)
+	at java.sql.DriverManager.getConnection(DriverManager.java:215)
+	at BDInterface.Conexao.getConexao(Conexao.java:28)
+	at persistencia.PerUsuario.login(PerUsuario.java:135)
+	at persistencia.PerUsuarioTest.testLogin(PerUsuarioTest.java:102)
+</error>
+  </testcase>
+  <testcase classname="persistencia.PerUsuarioTest" name="testAlterar" time="2.0">
+    <error message="test timed out after 2000 milliseconds" type="java.lang.Exception">java.lang.Exception: test timed out after 2000 milliseconds
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at java.net.Socket.connect(Socket.java:528)
+	at java.net.Socket.&lt;init&gt;(Socket.java:425)
+	at java.net.Socket.&lt;init&gt;(Socket.java:241)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:259)
+	at com.mysql.jdbc.MysqlIO.&lt;init&gt;(MysqlIO.java:305)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2461)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2498)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2283)
+	at com.mysql.jdbc.ConnectionImpl.&lt;init&gt;(ConnectionImpl.java:822)
+	at com.mysql.jdbc.JDBC4Connection.&lt;init&gt;(JDBC4Connection.java:47)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:404)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:317)
+	at java.sql.DriverManager.getConnection(DriverManager.java:571)
+	at java.sql.DriverManager.getConnection(DriverManager.java:215)
+	at BDInterface.Conexao.getConexao(Conexao.java:28)
+	at persistencia.PerUsuario.alterar(PerUsuario.java:76)
+	at persistencia.PerUsuarioTest.testAlterar(PerUsuarioTest.java:75)
+</error>
+  </testcase>
+  <testcase classname="persistencia.PerUsuarioTest" name="testInserir" time="1.172" />
+  <testcase classname="persistencia.PerUsuarioTest" name="testExcluir" time="0.062" />
+  <system-out><![CDATA[consultar - Usuario
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
 login - Usuario
-inserir - Usuario
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
 alterar - Usuario
-consultar - Usuario
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+inserir - Usuario
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+excluir - Usuario
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

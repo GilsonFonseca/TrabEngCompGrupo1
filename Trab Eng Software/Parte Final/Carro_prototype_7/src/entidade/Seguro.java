@@ -31,9 +31,6 @@ public class Seguro extends Gasto{
     /**
      * @return the tipo
      */
-    public int getTipo() {
-        return tipo;
-    }
 
     /**
      * @param tipo the tipo to set

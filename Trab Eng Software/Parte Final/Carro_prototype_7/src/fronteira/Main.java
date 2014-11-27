@@ -38,8 +38,10 @@ public class Main extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CarBill");
@@ -83,6 +85,14 @@ public class Main extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem4);
 
+        jMenuItem5.setText("Gastos");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem5);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Relatorios");
@@ -94,6 +104,14 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jMenu2.add(jMenuItem2);
+
+        jMenuItem6.setText("Dependente");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem6);
 
         jMenuBar1.add(jMenu2);
 
@@ -151,8 +169,37 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
+    if(!cadastro_veiculo){
+        setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
+        cadastro_veiculo=true;
+        Cadastro_Veiculo2 a = new Cadastro_Veiculo2(this);
+        a.setVisible(true);
+        jDesktopPane1.add(a);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+    }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    if(!cadastro_gasto){
+        setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
+        cadastro_gasto=true;
+        Cadastro_Gastos a = new Cadastro_Gastos(this);
+        a.setVisible(true);
+        jDesktopPane1.add(a);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+    }
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+    if(!relatorio_dependente){
+        setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
+        relatorio_dependente=true;
+        Relatorio_Dependente a = new Relatorio_Dependente(this);
+        a.setVisible(true);
+        jDesktopPane1.add(a);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+    }
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
      * Metodo main para a execuçao do programa
@@ -200,8 +247,13 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     // End of variables declaration//GEN-END:variables
     public boolean cadastro_usuario = false;
     public boolean relatorio_usuario = false;
     public boolean cadastro_dependente = false;
+    public boolean relatorio_dependente = false;
+    public boolean cadastro_veiculo = false;
+    public boolean cadastro_gasto = false;
 }
