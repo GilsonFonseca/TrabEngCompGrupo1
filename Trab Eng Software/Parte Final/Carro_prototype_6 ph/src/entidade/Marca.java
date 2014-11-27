@@ -12,8 +12,12 @@ package entidade;
 public class Marca {
     String nome;    
 
-    public Marca(String a){
-        nome =a;
+    public Marca(String marca){
+        nome = marca;
+    }
+
+    public Marca() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     public String getNome() {
         return nome;

@@ -12,6 +12,8 @@ package entidade;
 public class Seguro {
     private String empresa;
     private int tipo;
+    private Dependente dependente;
+    private float preco;
 
     /**
      * @return the empresa

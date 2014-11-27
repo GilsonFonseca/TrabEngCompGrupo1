@@ -14,6 +14,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Gilson
+ */
 public class PerVeiculo {
     
     public static boolean inserir(Veiculo user)
@@ -117,5 +121,26 @@ public class PerVeiculo {
             System.out.println("Erro ao alterar."+e);
             return false;
         }
+    }
+     public static boolean excluir(int id)
+    {
+        //comando sql 
+        String sql="delete from veiculo where id_usuario =?";
+        //tenta realizar a operação
+        try{
+            //realiza a conexaocom o banco 
+            Connection con=Conexao.getConexao();
+             PreparedStatement p=Conexao.getConexao().prepareStatement(sql);
+             p.setInt(1, id);
+             //executa a operação
+             p.executeUpdate();
+             //fecha a conexão
+             con.close();
+             return true;
+         } catch(SQLException e){
+             //alerta em caso de erro de operação
+              System.out.println("Erro no delete");
+              return false;
+         }
     }
 }
