@@ -3,20 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package persistencia;  
-import BDInterface.Conexao;
-import entidade.Marca;
-import entidade.Usuario;
-import entidade.Veiculo;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
+package persistencia;
 
-public class PerVeiculo {
-    
-    public static boolean inserir(Veiculo user)
+/**
+ *
+ * @author Gilson
+ */
+public class PerGastos {
+     public static boolean inserir(Gastos gastos)
         {     
         //comando sql
         String sql="insert into veiculo(marca,cor, ano, modelo, placa, condicao, valorComprado, valorVendido,id_usuario) values(?,?,?,?,?,?,?,?,?,?)";
@@ -118,4 +112,26 @@ public class PerVeiculo {
             return false;
         }
     }
+     public static boolean excluir(int id)
+    {
+        //comando sql 
+        String sql="delete from veiculo where id_usuario =?";
+        //tenta realizar a operação
+        try{
+            //realiza a conexaocom o banco 
+            Connection con=Conexao.getConexao();
+             PreparedStatement p=Conexao.getConexao().prepareStatement(sql);
+             p.setInt(1, id);
+             //executa a operação
+             p.executeUpdate();
+             //fecha a conexão
+             con.close();
+             return true;
+         } catch(SQLException e){
+             //alerta em caso de erro de operação
+              System.out.println("Erro no delete");
+              return false;
+         }
+    }
+    
 }
